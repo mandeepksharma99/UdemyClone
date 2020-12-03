@@ -1,7 +1,5 @@
 package com.dev.learningPlatform.entity;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "instructor_detail")
-public class InstructorDetail {
+@Table(name = "student_detail")
+public class StudentDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,13 +18,10 @@ public class InstructorDetail {
     @Column(name = "gender")
     int gender;
 
-    @Column(name = "country")
-    int country;
+    @Column(name = "course")
+    int course;
 
-    @Column(name= "date_of_birth")
-    LocalDate dateOfBirth;
-
-    public InstructorDetail() {
+    public StudentDetail() {
 		super();
 	}
 
@@ -46,25 +41,16 @@ public class InstructorDetail {
         this.gender = gender;
     }
 
-    public int getCountry() {
-        return country;
-    }
+	public int getCourse() {
+		return course;
+	}
 
-    public void setCountry(int country) {
-        this.country = country;
-    }
-
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+	public void setCourse(int course) {
+		this.course = course;
+	}
 
 	@Override
 	public String toString() {
-		return "InstructorDetail [id=" + id + ", gender=" + gender + ", country=" + country + ", dateOfBirth="
-				+ dateOfBirth + "]";
+		return "StudentDetail [id=" + id + ", gender=" + gender + ", course=" + course + "]";
 	}
 }

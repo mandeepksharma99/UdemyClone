@@ -12,8 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "instructor")
-public class Instructor {
+@Table(name = "student")
+public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,19 +25,15 @@ public class Instructor {
     @Column(name="last_name")
     String lastName;
 
-    @OneToOne(targetEntity = InstructorDetail.class, cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name="instructor_detail_id", referencedColumnName = "id")
-    InstructorDetail instructorDetail;
+    @OneToOne(targetEntity = StudentDetail.class, cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinColumn(name="student_detail_id", referencedColumnName = "id")
+    StudentDetail studentDetail;
 
-    public Instructor() {
+    public Student() {
 		super();
 	}
 
-	public InstructorDetail getInstructorDetail() {
-        return instructorDetail;
-    }
-
-    public int getId() {
+	public int getId() {
         return id;
     }
 
@@ -61,9 +57,17 @@ public class Instructor {
         this.lastName = lastName;
     }
 
+	public StudentDetail getStudentDetail() {
+		return studentDetail;
+	}
+
+	public void setStudentDetail(StudentDetail studentDetail) {
+		this.studentDetail = studentDetail;
+	}
+
 	@Override
 	public String toString() {
-		return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", instructorDetail="
-				+ instructorDetail + "]";
-	}    
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentDetail="
+				+ studentDetail + "]";
+	}
 }
