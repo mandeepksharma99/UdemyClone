@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+// TODO : change make mapping through mapid
 @Entity
 @Table(name = "instructor")
 public class Instructor {

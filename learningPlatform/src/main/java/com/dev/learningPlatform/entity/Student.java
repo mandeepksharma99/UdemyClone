@@ -11,12 +11,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+// TODO : change make mapping through mapid
 @Entity
 @Table(name = "student")
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     int id;
 
     @Column(name="first_name")
@@ -30,7 +32,6 @@ public class Student {
     StudentDetail studentDetail;
 
     public Student() {
-		super();
 	}
 
 	public int getId() {
@@ -64,7 +65,6 @@ public class Student {
 	public void setStudentDetail(StudentDetail studentDetail) {
 		this.studentDetail = studentDetail;
 	}
-
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentDetail="
